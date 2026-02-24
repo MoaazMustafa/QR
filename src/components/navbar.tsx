@@ -1,6 +1,6 @@
 'use client';
 
-import { QrCode, ScanLine } from 'lucide-react';
+import { Barcode, Home, QrCode, ScanLine } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -12,7 +12,8 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const navLinks = [
-    { href: '/', label: 'Generator', icon: QrCode },
+    { href: '/', label: 'Home', icon: Home },
+    { href: '/generator', label: 'Generator', icon: QrCode },
     { href: '/scanner', label: 'Scanner', icon: ScanLine },
   ];
 

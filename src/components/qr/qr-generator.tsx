@@ -8,7 +8,7 @@ import {
   Phone,
   Wifi,
 } from 'lucide-react';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import {
   Card,
@@ -30,6 +30,8 @@ import { QRCustomization } from './qr-customization';
 import { QRDisplay } from './qr-display';
 import { QRDownload } from './qr-download';
 import { DEFAULT_QR_OPTIONS, type QROptions } from './qr-options';
+
+const QR_OPTIONS_STORAGE_KEY = 'qrcraft-qr-options';
 
 type QRCodeStylingType = import('qr-code-styling').default;
 
@@ -77,6 +79,38 @@ export function QRGenerator() {
 
   // QR styling options
   const [qrOptions, setQrOptions] = useState<QROptions>(DEFAULT_QR_OPTIONS);
+  const [hydrated, setHydrated] = useState(false);
+
+  // Load saved customization from localStorage on mount
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(QR_OPTIONS_STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved) as Partial<QROptions>;
+        setQrOptions((prev) => ({
+          ...prev,
+          ...parsed,
+          logoUrl: '', // Don't restore logo (could be large base64)
+          data: prev.data,
+        }));
+      }
+    } catch {
+      // Ignore parse errors
+    }
+    setHydrated(true);
+  }, []);
+
+  // Save customization to localStorage when it changes
+  useEffect(() => {
+    if (!hydrated) return;
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { logoUrl, data, ...saveable } = qrOptions;
+      localStorage.setItem(QR_OPTIONS_STORAGE_KEY, JSON.stringify(saveable));
+    } catch {
+      // Ignore quota errors
+    }
+  }, [qrOptions, hydrated]);
 
   // Build QR data string based on active type
   const getQRData = useCallback((): string => {

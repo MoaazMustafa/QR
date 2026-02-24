@@ -1,11 +1,13 @@
 'use client';
 
 import {
+  Barcode,
   Camera,
   Check,
   Copy,
   ExternalLink,
   ImageUp,
+  QrCode,
   ScanLine,
   X,
 } from 'lucide-react';
@@ -33,6 +35,7 @@ const Scanner = dynamic(
 interface ScanResult {
   value: string;
   type: string;
+  format: string;
   timestamp: Date;
 }
 
@@ -47,8 +50,28 @@ function detectContentType(value: string): string {
   return 'Text';
 }
 
+function detectScanFormat(format?: string): string {
+  if (!format) return 'QR Code';
+  const f = format.toLowerCase();
+  if (f.includes('qr')) return 'QR Code';
+  if (f.includes('ean_13') || f === 'ean-13') return 'EAN-13';
+  if (f.includes('ean_8') || f === 'ean-8') return 'EAN-8';
+  if (f.includes('upc_a') || f === 'upc-a') return 'UPC-A';
+  if (f.includes('upc_e') || f === 'upc-e') return 'UPC-E';
+  if (f.includes('code_128') || f === 'code-128') return 'Code 128';
+  if (f.includes('code_39') || f === 'code-39') return 'Code 39';
+  if (f.includes('code_93') || f === 'code-93') return 'Code 93';
+  if (f.includes('itf')) return 'ITF';
+  if (f.includes('codabar')) return 'Codabar';
+  if (f.includes('data_matrix')) return 'Data Matrix';
+  if (f.includes('aztec')) return 'Aztec';
+  if (f.includes('pdf417') || f.includes('pdf_417')) return 'PDF417';
+  return format;
+}
+
 function ScanResultCard({ result, onClear }: { readonly result: ScanResult; readonly onClear: () => void }) {
   const [copied, setCopied] = useState(false);
+  const isQR = result.format === 'QR Code';
 
   const handleCopy = async () => {
     try {
@@ -69,12 +92,12 @@ function ScanResultCard({ result, onClear }: { readonly result: ScanResult; read
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="flex size-8 items-center justify-center rounded-full bg-primary/10 text-primary">
-              <Check className="size-4" />
+              {isQR ? <QrCode className="size-4" /> : <Barcode className="size-4" />}
             </div>
             <div>
-              <CardTitle className="text-base">QR Code Detected</CardTitle>
+              <CardTitle className="text-base">{result.format} Detected</CardTitle>
               <CardDescription className="text-xs">
-                Type: {result.type} • {result.timestamp.toLocaleTimeString()}
+                Content: {result.type} • Format: {result.format} • {result.timestamp.toLocaleTimeString()}
               </CardDescription>
             </div>
           </div>
@@ -130,14 +153,16 @@ export function QRScanner() {
   const [isProcessing, setIsProcessing] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleScan = useCallback((detectedCodes: { rawValue: string }[]) => {
+  const handleScan = useCallback((detectedCodes: { rawValue: string; format?: string | number }[]) => {
     if (detectedCodes.length > 0) {
-      const value = detectedCodes[0].rawValue;
+      const code = detectedCodes[0];
+      const value = code.rawValue;
       if (!value) return;
       const type = detectContentType(value);
-      setScanResult({ value, type, timestamp: new Date() });
+      const format = detectScanFormat(typeof code.format === 'string' ? code.format : undefined);
+      setScanResult({ value, type, format, timestamp: new Date() });
       setScannerActive(false);
-      toast.success('QR code scanned successfully!');
+      toast.success(`${format} scanned successfully!`);
     }
   }, []);
 
@@ -172,6 +197,7 @@ export function QRScanner() {
               setScanResult({
                 value: code.data,
                 type,
+                format: 'QR Code',
                 timestamp: new Date(),
               });
               toast.success('QR code detected in image!');
@@ -223,7 +249,7 @@ export function QRScanner() {
                 Camera Scanner
               </CardTitle>
               <CardDescription>
-                Point your camera at a QR code to scan it
+                Point your camera at a QR code or barcode to scan it
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -254,7 +280,7 @@ export function QRScanner() {
                   <div className="flex aspect-square max-h-[400px] w-full items-center justify-center bg-muted/50">
                     <div className="text-center">
                       <Check className="mx-auto mb-2 size-12 text-primary" />
-                      <p className="font-medium">QR Code Scanned!</p>
+                      <p className="font-medium">Code Scanned!</p>
                       <Button
                         variant="outline"
                         size="sm"
@@ -276,10 +302,10 @@ export function QRScanner() {
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
                 <ImageUp className="size-5 text-primary" />
-                Upload QR Image
+                Upload Image
               </CardTitle>
               <CardDescription>
-                Upload an image containing a QR code to decode it
+                Upload an image containing a QR code or barcode to decode it
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -333,8 +359,8 @@ export function QRScanner() {
           <CardContent className="flex flex-col items-center justify-center py-10 text-center">
             <ScanLine className="mb-3 size-10 text-muted-foreground/50" />
             <p className="text-sm text-muted-foreground">
-              No QR code scanned yet. Use the camera or upload an image to get
-              started.
+              No code scanned yet. Use the camera or upload an image to scan
+              QR codes and barcodes.
             </p>
           </CardContent>
         </Card>
