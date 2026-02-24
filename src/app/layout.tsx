@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Orbitron } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
+import { Toaster } from 'sonner';
 
 import '@/styles/globals.css';
-import ThemeProvider from '@/components/theme-provider';
 import { DisableDevTools } from '@/components/disable-devtools';
 import Navbar from '@/components/navbar';
+import ThemeProvider from '@/components/theme-provider';
+import { TooltipProvider } from '@/components/ui/tooltip';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -27,6 +29,9 @@ const orbitron = Orbitron({
 });
 
 export const metadata: Metadata = {
+  title: 'QRCraft — QR Code Generator & Scanner',
+  description:
+    'Generate and scan QR codes instantly. Support for URLs, text, WiFi, email, phone, VCard, and more. Fully customizable with colors, dot styles, logos, and gradient support.',
   icons: {
     icon: '/favicon/favicon.ico',
     shortcut: '/favicon/favicon-16x16.png',
@@ -57,7 +62,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
           enableSystem
           disableTransitionOnChange
         >
-          <DisableDevTools />
+          <TooltipProvider>
+            <DisableDevTools />
             <Navbar />
             <main role="main" id="main-content">
               {children}
@@ -66,6 +72,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <footer role="contentinfo" data-footer>
               {/* Footer component will be added here */}
             </footer>
+            <Toaster
+              richColors
+              position="bottom-right"
+              toastOptions={{
+                style: { fontFamily: 'var(--font-geist-sans)' },
+              }}
+            />
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>
