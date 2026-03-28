@@ -1,20 +1,25 @@
-<!-- README-AI-SIGNATURE:b812f6886a476bb8 -->
-```markdown
+<!-- README-AI-SIGNATURE:20260328002122 -->
 # QR
 
-A QR code generator application built with TypeScript and Next.js.
+QR is a TypeScript-based project designed to generate and manage QR codes efficiently. Leveraging modern web technologies, this application provides a seamless user experience for creating and scanning QR codes.
 
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white) ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white) ![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
 
-## Key Features
+## ✨ Key Features
 
-- Generate and display QR codes.
-- Responsive design with Tailwind CSS.
-- Linting and formatting with ESLint and Prettier.
-- Development and production builds using Next.js.
+### 📦 QR Code Generation
+- Create customizable QR codes using various styles and configurations.
 
-## Project Structure
+### 🔍 QR Code Scanning
+- Integrate QR code scanning capabilities for quick access to information.
+
+### 🎨 Modern UI
+- Utilize a responsive and visually appealing interface built with Tailwind CSS.
+
+### ⚙️ Linting and Formatting
+- Maintain code quality with ESLint and Prettier configurations.
+
+## 🏗️ Project Structure
 
 ```
 .
@@ -43,48 +48,39 @@ A QR code generator application built with TypeScript and Next.js.
     └── styles/
 ```
 
-## Getting Started
+## 🚀 Getting Started
 
-To get started with the QR code generator, follow these steps:
+To get started with the QR project, follow these steps:
 
 1. Clone the repository:
-   ```bash
+   ```
    git clone https://github.com/MoaazMustafa/QR.git
    cd QR
    ```
 
 2. Install the dependencies:
-   ```bash
+   ```
    npm install
    ```
 
-3. Run the development server:
-   ```bash
+3. Start the development server:
+   ```
    npm run dev
    ```
 
-4. Open your browser and navigate to `http://localhost:3000`.
+## 📜 Scripts
 
-## Scripts
+The following scripts are available for managing the project:
 
-The following scripts are available:
+- `npm run dev`: Start the development server.
+- `npm run build`: Build the application for production.
+- `npm run start`: Start the production server.
+- `npm run lint`: Run ESLint to check for code quality issues.
 
-- `dev`: Starts the development server.
-- `build`: Builds the application for production.
-- `start`: Starts the production server.
-- `lint`: Runs ESLint to check for code quality.
+## 🤝 Contributing
 
-## Contributing
+Contributions are welcome! Please feel free to submit a pull request or open an issue for any enhancements or bug fixes.
 
-Contributions are welcome! Please follow these steps to contribute:
+## 📄 License
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/YourFeature`).
-3. Make your changes and commit them (`git commit -m 'Add some feature'`).
-4. Push to the branch (`git push origin feature/YourFeature`).
-5. Open a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-```
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
