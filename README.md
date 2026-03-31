@@ -1,4 +1,4 @@
-<!-- README-AI-SIGNATURE:20260330025701 -->
+<!-- README-AI-SIGNATURE:20260331024836 -->
 # QR
 
 QR is a TypeScript-based project designed to generate and manage QR codes efficiently. Leveraging modern web technologies, this application provides a seamless user experience for creating and scanning QR codes.
@@ -8,22 +8,21 @@ QR is a TypeScript-based project designed to generate and manage QR codes effici
 ## ✨ Key Features
 
 ### 📦 QR Code Generation
-- Create customizable QR codes using the `qr-code-styling` library.
-- Integrate with `jsbarcode` for additional barcode functionalities.
+- Create customizable QR codes with various styling options using the `qr-code-styling` library.
 
-### 🔍 QR Code Scanning
-- Utilize the `@yudiel/react-qr-scanner` for real-time QR code scanning capabilities.
+### 📱 QR Code Scanning
+- Integrate QR code scanning functionality with the `@yudiel/react-qr-scanner` package for real-time scanning capabilities.
 
 ### 🎨 Modern UI
-- Built with React and styled using Tailwind CSS for a responsive and modern design.
+- Utilize Radix UI components and Tailwind CSS for a responsive and visually appealing user interface.
 
-### ⚙️ Linting and Formatting
-- Enforced code quality with ESLint and Prettier configurations.
+### 🔍 Linting and Formatting
+- Maintain code quality with ESLint and Prettier configurations, ensuring a clean and consistent codebase.
 
 ## 🏗️ Project Structure
 
 ```
-.
+QR/
 ├── .gitignore
 ├── .lintstagedrc.json
 ├── .npmrc
