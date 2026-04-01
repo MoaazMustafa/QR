@@ -1,28 +1,28 @@
-<!-- README-AI-SIGNATURE:20260331024836 -->
+<!-- README-AI-SIGNATURE:20260401032024 -->
 # QR
 
-QR is a TypeScript-based project designed to generate and manage QR codes efficiently. Leveraging modern web technologies, this application provides a seamless user experience for creating and scanning QR codes.
+QR is a TypeScript-based project designed to generate and manage QR codes efficiently. It leverages modern web technologies to provide a seamless user experience while ensuring high performance and maintainability.
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white) ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white) ![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
 
 ## ✨ Key Features
 
-### 📦 QR Code Generation
-- Create customizable QR codes with various styling options using the `qr-code-styling` library.
+### 📦 Modern Tech Stack
+- Built with **TypeScript**, **Next.js**, and **React** for a robust development experience.
+- Utilizes **Tailwind CSS** for rapid UI development and styling.
 
-### 📱 QR Code Scanning
-- Integrate QR code scanning functionality with the `@yudiel/react-qr-scanner` package for real-time scanning capabilities.
+### 🔍 QR Code Generation
+- Integrates **jsqr** and **qr-code-styling** for versatile QR code generation and customization.
+- Supports real-time QR code scanning with **@yudiel/react-qr-scanner**.
 
-### 🎨 Modern UI
-- Utilize Radix UI components and Tailwind CSS for a responsive and visually appealing user interface.
-
-### 🔍 Linting and Formatting
-- Maintain code quality with ESLint and Prettier configurations, ensuring a clean and consistent codebase.
+### ⚙️ Linting and Formatting
+- Configured with **ESLint** and **Prettier** for maintaining code quality and consistency.
+- Uses **lint-staged** to ensure only staged files are linted before commits.
 
 ## 🏗️ Project Structure
 
 ```
-QR/
+.
 ├── .gitignore
 ├── .lintstagedrc.json
 ├── .npmrc
@@ -50,32 +50,28 @@ QR/
 
 ## 🚀 Getting Started
 
-To get started with the QR project, follow these steps:
+To get started with the QR project, clone the repository and install the dependencies:
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/MoaazMustafa/QR.git
-   cd QR
-   ```
+```bash
+git clone https://github.com/MoaazMustafa/QR.git
+cd QR
+npm install
+```
 
-2. Install the dependencies:
-   ```
-   npm install
-   ```
+You can then run the development server:
 
-3. Run the development server:
-   ```
-   npm run dev
-   ```
+```bash
+npm run dev
+```
 
 ## 📜 Scripts
 
-The following scripts are available for managing the project:
+The following scripts are available for use:
 
-- `npm run dev`: Start the development server.
-- `npm run build`: Build the application for production.
-- `npm run start`: Start the production server.
-- `npm run lint`: Run ESLint to check for code quality issues.
+- `npm run dev` - Starts the development server.
+- `npm run build` - Builds the application for production.
+- `npm run start` - Starts the production server.
+- `npm run lint` - Runs ESLint to check for code quality issues.
 
 ## 🤝 Contributing
 
