@@ -1,23 +1,23 @@
-<!-- README-AI-SIGNATURE:20260401032024 -->
+<!-- README-AI-SIGNATURE:20260402024450 -->
 # QR
 
-QR is a TypeScript-based project designed to generate and manage QR codes efficiently. It leverages modern web technologies to provide a seamless user experience while ensuring high performance and maintainability.
+QR is a TypeScript-based project designed for generating and managing QR codes. It leverages modern web technologies to provide a seamless user experience. This repository serves as a foundation for building QR code applications with a focus on performance and usability.
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white) ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white) ![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
 
 ## ✨ Key Features
 
-### 📦 Modern Tech Stack
-- Built with **TypeScript**, **Next.js**, and **React** for a robust development experience.
-- Utilizes **Tailwind CSS** for rapid UI development and styling.
+### 📦 Modular Components
+- Built with reusable components for easy integration and customization.
 
-### 🔍 QR Code Generation
-- Integrates **jsqr** and **qr-code-styling** for versatile QR code generation and customization.
-- Supports real-time QR code scanning with **@yudiel/react-qr-scanner**.
+### 🎨 Styling Options
+- Utilizes Tailwind CSS for rapid UI development and responsive design.
 
-### ⚙️ Linting and Formatting
-- Configured with **ESLint** and **Prettier** for maintaining code quality and consistency.
-- Uses **lint-staged** to ensure only staged files are linted before commits.
+### ⚡ Performance Optimized
+- Leverages Next.js for server-side rendering and optimized loading times.
+
+### 🔍 QR Code Scanning
+- Integrates with `@yudiel/react-qr-scanner` for real-time QR code scanning capabilities.
 
 ## 🏗️ Project Structure
 
@@ -50,28 +50,32 @@ QR is a TypeScript-based project designed to generate and manage QR codes effici
 
 ## 🚀 Getting Started
 
-To get started with the QR project, clone the repository and install the dependencies:
+To get started with the QR project, follow these steps:
 
-```bash
-git clone https://github.com/MoaazMustafa/QR.git
-cd QR
-npm install
-```
+1. Clone the repository:
+   ```
+   git clone https://github.com/MoaazMustafa/QR.git
+   cd QR
+   ```
 
-You can then run the development server:
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
-```bash
-npm run dev
-```
+3. Run the development server:
+   ```
+   npm run dev
+   ```
 
 ## 📜 Scripts
 
-The following scripts are available for use:
+The following scripts are available for managing the project:
 
-- `npm run dev` - Starts the development server.
-- `npm run build` - Builds the application for production.
-- `npm run start` - Starts the production server.
-- `npm run lint` - Runs ESLint to check for code quality issues.
+- **Development**: `npm run dev` - Starts the development server.
+- **Build**: `npm run build` - Compiles the application for production.
+- **Start**: `npm run start` - Starts the production server.
+- **Lint**: `npm run lint` - Runs ESLint to check for code quality.
 
 ## 🤝 Contributing
 
