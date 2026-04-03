@@ -1,23 +1,23 @@
-<!-- README-AI-SIGNATURE:20260402024450 -->
+<!-- README-AI-SIGNATURE:20260403024843 -->
 # QR
 
-QR is a TypeScript-based project designed for generating and managing QR codes. It leverages modern web technologies to provide a seamless user experience. This repository serves as a foundation for building QR code applications with a focus on performance and usability.
+QR is a TypeScript-based project designed to generate and manage QR codes efficiently. Leveraging modern web technologies, this application provides a seamless user experience for creating and scanning QR codes.
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white) ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white) ![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
 
 ## ✨ Key Features
 
-### 📦 Modular Components
-- Built with reusable components for easy integration and customization.
-
-### 🎨 Styling Options
-- Utilizes Tailwind CSS for rapid UI development and responsive design.
-
-### ⚡ Performance Optimized
-- Leverages Next.js for server-side rendering and optimized loading times.
+### 📱 QR Code Generation
+- Create customizable QR codes with various styling options using the `qr-code-styling` library.
 
 ### 🔍 QR Code Scanning
-- Integrates with `@yudiel/react-qr-scanner` for real-time QR code scanning capabilities.
+- Integrate QR code scanning functionality with the `@yudiel/react-qr-scanner` package for real-time scanning capabilities.
+
+### 🎨 Modern UI
+- Utilize Radix UI components and Tailwind CSS for a responsive and visually appealing user interface.
+
+### ⚙️ Linting and Formatting
+- Maintain code quality with ESLint and Prettier configurations, ensuring a clean and consistent codebase.
 
 ## 🏗️ Project Structure
 
@@ -58,7 +58,7 @@ To get started with the QR project, follow these steps:
    cd QR
    ```
 
-2. Install dependencies:
+2. Install the dependencies:
    ```
    npm install
    ```
@@ -72,10 +72,10 @@ To get started with the QR project, follow these steps:
 
 The following scripts are available for managing the project:
 
-- **Development**: `npm run dev` - Starts the development server.
-- **Build**: `npm run build` - Compiles the application for production.
-- **Start**: `npm run start` - Starts the production server.
-- **Lint**: `npm run lint` - Runs ESLint to check for code quality.
+- `npm run dev`: Start the development server.
+- `npm run build`: Build the application for production.
+- `npm run start`: Start the production server.
+- `npm run lint`: Run ESLint to check for code quality issues.
 
 ## 🤝 Contributing
 
